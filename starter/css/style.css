@@ -1,0 +1,157 @@
+/*
+COLORS:
+
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+*/
+
+/*Remove as configurações postas por padrão pelo navegador*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Todas as prodiedades definidas dentro do body serão herdades em todos os elemntos filhos */
+body {
+    /* Definindo a fonte */
+    font-family: "Lato", sans-serif;
+    /* Peso da fonte */
+    font-weight: 400;
+    /* Tamnaho da letra */
+    font-size: 16px;
+    /* Definindo a altura da linha */ 
+    line-height: 1.7;
+    /* Definindo a cor do texto */
+    color: #777;
+
+    padding: 30px;
+}
+
+.header {
+    /* Definir a altura do componente */
+    height: 95vh;
+    /* Definindo a imagem como background */
+    /* É possivel declarar mais de uma imagem de fundo, pode ir separando por virgulas. A que permanece no topo é a que esta em primeiro.*/
+    background-image: linear-gradient(to right,rgba(126,213,111,0.8),rgba(40,180,131,0.8)) ,url('../img/hero.jpg');
+    /* Define o tamanho do background "Cover faz ele ocupar todo o tamanho do elemento" */
+    background-size: cover;
+    /* Definie a posição inicial da imagem, se ela parte do centro, topo... */
+    background-position: top;
+    clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+    position: relative;
+}
+
+.logo-box {
+    /*Para o positivo absolute funcionar funcionar o elemento pai precisa ter  o position relative*/
+    /*A posição inicial do position filho é onde o position pai começa*/
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+.logo {
+    /* Quando colocado somente a altura do elemento a largura é definida pelo navegador */
+ height: 35px;
+}
+
+.text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    /*Quanto utilizamos o transform ele para obedecer o tamanho do pai, e obedece a dele mesmo*/
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+.heading-primary {
+    color: #fff;
+    /*Permite transoformar o texto */
+    text-transform: uppercase;
+    margin-bottom: 60px;
+}
+
+.heading-primary-main {
+    /*Por padrão o span possui o display inline, já o display block, faz o elemento ter quebra de linha pois ele ocupa o 100% da largura*/
+    display: block;
+    font-size: 60px;
+    font-weight: 400;
+    /*Espaço entre letras*/
+    letter-spacing: 35px;
+
+    /*Chamar a Animação pelo nome*/
+    animation-name: moveInLeft;
+    /*Tempo de duração da animação*/
+    animation-duration: 1s;
+}
+
+
+.heading-primary-sub {
+    display: block;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 17.4px;
+
+    animation: moveInRight 1s ease-out;
+    
+}
+
+/* Criando animação */
+/*Trabalha encima de porcentagem*/
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translate(-100px);
+    }
+
+    80% {
+        transform: translate(20px);
+
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    80% {
+        transform: translate(-20px);
+
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+
+.btn:link, .btn:visited {
+text-transform: uppercase;
+text-decoration: none;
+padding: 15px 40px;
+display: inline-block;
+border-radius: 100px;
+transition: all 0.2s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    /*Coloca sombra o primeixo valor é o eixo x segundo y e o terceiro o tanto que a sombra ficra borrada tambem é possivel passar a cor da sombra*/
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+
+}
+.btn-white {
+    background-color: #fff;
+    color: #777;
+}
